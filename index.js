@@ -201,25 +201,37 @@ document.getElementById("sub").onclick = function() {
     }
 };
 document.getElementById("divi").onclick = function() {
+    let d = display.textContent;
     if (flageq) {
         display.textContent = "";
         eva = "";
         flageq = false;
     }
     if (flagturn) {
-        display.textContent += "/";
-        eva += "/";
+        if (d[d.length - 1] == "/") {
+            display.textContent += "/";
+            eva += "*";
+        } else {
+            display.textContent += "/";
+            eva += "/";
+        }
     }
 };
 document.getElementById("mult").onclick = function() {
+    let d = display.textContent;
     if (flageq) {
         display.textContent = "";
         eva = "";
         flageq = false;
     }
     if (flagturn) {
-        display.textContent += "x";
-        eva += "*";
+        if (d[d.length - 1] == "x") {
+            display.textContent += "x";
+            eva += "/";
+        } else {
+            display.textContent += "x";
+            eva += "*";
+        }
     }
 };
 document.getElementById("eq").onclick = function() {
@@ -549,4 +561,3 @@ function tst(st) {
         }
     }
 }
-console.log(window.screen.width);
